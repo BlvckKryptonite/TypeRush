@@ -1,8 +1,8 @@
-# Typing Speed Test Application
+# TypeRush - Typing Speed Test Application
 
 ## Overview
 
-This is a client-side typing speed test application built with vanilla HTML, CSS, and JavaScript. The application provides users with a gamified typing experience featuring multiple difficulty levels, real-time statistics tracking, and a modern, responsive user interface.
+TypeRush is a client-side typing speed test application built with vanilla HTML, CSS, and JavaScript. It provides users with a gamified typing experience featuring multiple difficulty levels, real-time statistics, and time-based challenges with bonus mechanics.
 
 ## User Preferences
 
@@ -14,93 +14,79 @@ Preferred communication style: Simple, everyday language.
 - **Technology Stack**: Pure vanilla web technologies (HTML5, CSS3, JavaScript ES6+)
 - **Architecture Pattern**: Single Page Application (SPA) with object-oriented JavaScript
 - **Design Pattern**: Class-based architecture with centralized game state management
-- **Styling Approach**: CSS3 with modern features including gradients, flexbox, and responsive design
+- **No Framework Dependencies**: Chosen for simplicity, fast loading times, and minimal overhead
 
-### Key Design Decisions
-- **No Framework Dependency**: Chosen for simplicity, fast loading, and minimal overhead
-- **Class-based Game Logic**: Encapsulates game state and methods in a single `TypingGame` class for better organization
-- **Responsive Design**: Mobile-first approach ensuring compatibility across devices
+### Key Architectural Decisions
+
+**Problem**: Need for a lightweight, fast-loading typing test application
+**Solution**: Vanilla JavaScript with class-based organization
+**Rationale**: Eliminates framework overhead while maintaining code organization through OOP principles
+
+**Problem**: Managing complex game state across different interactions
+**Solution**: Centralized `TypingGame` class with encapsulated state management
+**Rationale**: Provides clear separation of concerns and easier debugging
 
 ## Key Components
 
 ### 1. Game Engine (`TypingGame` class)
 - **Purpose**: Core game logic and state management
 - **Responsibilities**: 
-  - Word generation and difficulty management
-  - Timer and statistics calculation
+  - Word generation based on difficulty level
+  - Timer management with bonus system (+2 seconds per correct word, +5 for streaks)
+  - Real-time statistics calculation (WPM, CPM, accuracy)
   - Game flow control (start, pause, restart)
-  - Real-time performance tracking
 
-### 2. User Interface Components
-- **Header**: Title and difficulty selector
-- **Stats Bar**: Real-time display of WPM, CPM, accuracy, time, and streak
-- **Word Display**: Current word presentation
-- **Input Controls**: Start/restart buttons and text input field
+### 2. User Interface System
+- **Header Component**: Logo, title, and difficulty selector
+- **Statistics Bar**: Live display of performance metrics
+- **Game Area**: Word display and input controls
+- **Responsive Design**: Mobile-first approach with flexbox layouts
 
-### 3. Difficulty System
-- **Beginner Mode**: Common English words (60 basic words)
-- **Intermediate Mode**: Programming and tech-related terms (48 words)
-- **Advanced Mode**: Complex vocabulary including technical terms (40+ challenging words)
-- **Rationale**: Provides scalable challenge levels for different skill levels
+### 3. Difficulty Management System
+- **Beginner Mode**: 60 common English words for basic practice
+- **Intermediate Mode**: 48 programming and tech-related terms
+- **Advanced Mode**: 40+ complex vocabulary including technical terms
+- **Dynamic Word Selection**: Random selection from appropriate word lists
+
+### 4. Scoring and Statistics System
+- **Real-time Metrics**: WPM, CPM, accuracy percentage
+- **Streak Tracking**: Consecutive correct answers with visual feedback
+- **Time Bonus Mechanics**: Extended gameplay through successful typing
 
 ## Data Flow
 
-### 1. Game Initialization
-```
-User loads page → TypingGame class instantiated → DOM elements bound → Default state set
-```
-
-### 2. Game Session Flow
-```
-User selects difficulty → Clicks start → Word generated → User types → 
-Real-time validation → Statistics updated → Timer countdown → Game ends → Results displayed
-```
-
-### 3. Statistics Calculation
-- **WPM**: Words per minute based on completed words
-- **CPM**: Characters per minute including spaces
-- **Accuracy**: Percentage of correct characters typed
-- **Streak**: Consecutive correct words
+1. **Game Initialization**: User selects difficulty and starts game
+2. **Word Generation**: Random word selected from appropriate difficulty list
+3. **User Input Processing**: Real-time validation and statistics updates
+4. **Performance Calculation**: Live WPM/CPM calculations based on elapsed time
+5. **Bonus Time Management**: Time extensions for correct answers and streaks
+6. **Local Storage**: Best scores saved to browser's local storage
 
 ## External Dependencies
 
-### Runtime Dependencies
-- **None**: Pure vanilla JavaScript implementation
-- **Browser APIs**: Standard DOM manipulation and timer functions
+### Fonts
+- **Google Fonts**: Alfa Slab One font family for enhanced typography
+- **Fallback**: Arial as system font fallback
 
-### Development Dependencies
-- **None**: No build process or compilation required
-- **Deployment**: Static file hosting compatible
+### Assets
+- **Logo**: Local logo.png file for branding
+- **No External Libraries**: Pure vanilla implementation without third-party JavaScript libraries
 
 ## Deployment Strategy
 
-### Hosting Requirements
-- **Type**: Static file hosting (GitHub Pages, Netlify, Vercel, or simple web server)
-- **Files**: Three core files (index.html, style.css, script.js)
-- **Browser Support**: Modern browsers with ES6+ support
+### Static File Hosting
+- **Architecture**: Client-side only application requiring basic static file hosting
+- **Files**: HTML, CSS, JavaScript, and image assets
+- **Compatibility**: Works on any web server or CDN that can serve static files
+- **Local Storage**: All user data stored locally in browser, no backend required
 
-### Performance Considerations
-- **Load Time**: Minimal due to no external dependencies
-- **Memory Usage**: Lightweight with efficient DOM manipulation
-- **Scalability**: Client-side only, no server resources required
+### Performance Optimizations
+- **CSS Versioning**: Cache-busting with version parameters
+- **Font Preloading**: Google Fonts preconnection for faster loading
+- **Responsive Images**: Optimized logo sizing
+- **Minimal Dependencies**: Reduced load times through vanilla implementation
 
-### Deployment Process
-1. Upload files to static hosting service
-2. Ensure proper MIME types for CSS and JS files
-3. Optional: Enable HTTPS for modern browser features
-4. No build step or compilation required
-
-## Future Enhancement Opportunities
-
-### Potential Additions
-- **Local Storage**: Save high scores and user preferences
-- **Word Lists**: Expandable vocabulary with custom word sets
-- **Themes**: Multiple UI themes and color schemes
-- **Multiplayer**: Real-time competitive typing races
-- **Analytics**: Detailed performance tracking over time
-
-### Technical Improvements
-- **Progressive Web App**: Offline capability and app-like experience
-- **Keyboard Shortcuts**: Enhanced accessibility and power user features
-- **Sound Effects**: Audio feedback for typing events
-- **Custom Difficulties**: User-defined word lists and time limits
+### Browser Compatibility
+- **Modern Browsers**: Targets ES6+ compatible browsers
+- **Mobile Support**: Responsive design for touch devices
+- **Progressive Enhancement**: Graceful degradation for older browsers

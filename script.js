@@ -11,6 +11,14 @@ class TypingGame {
                 'up', 'out', 'if', 'about', 'who', 'get', 'which', 'go', 'me', 'when',
                 'make', 'can', 'like', 'time', 'no', 'just', 'him', 'know', 'take', 'people'
             ],
+            intermediate: [
+                'computer', 'program', 'function', 'variable', 'method', 'object', 'class', 'string',
+                'number', 'boolean', 'array', 'return', 'condition', 'loop', 'break', 'continue',
+                'import', 'export', 'module', 'package', 'library', 'framework', 'database', 'server',
+                'client', 'request', 'response', 'header', 'body', 'status', 'error', 'exception',
+                'handle', 'catch', 'throw', 'async', 'await', 'promise', 'callback', 'event',
+                'listener', 'element', 'document', 'window', 'console', 'debug', 'test', 'build'
+            ],
             advanced: [
                 'algorithm', 'architecture', 'beautiful', 'challenging', 'development', 'extraordinary',
                 'fascinating', 'government', 'hierarchy', 'implementation', 'javascript', 'knowledge',
@@ -27,7 +35,7 @@ class TypingGame {
         this.gameState = {
             isPlaying: false,
             isPaused: false,
-            timeLeft: 10,
+            timeLeft: 15,
             currentWord: '',
             wordsTyped: 0,
             correctWords: 0,
@@ -107,7 +115,7 @@ class TypingGame {
     startGame() {
         this.gameState.isPlaying = true;
         this.gameState.startTime = Date.now();
-        this.gameState.timeLeft = 10;
+        this.gameState.timeLeft = 15;
 
         // Reset stats
         this.resetStats();
@@ -301,7 +309,7 @@ class TypingGame {
     }
 
     updateProgressBar() {
-        const progress = ((10 - this.gameState.timeLeft) / 10) * 100;
+        const progress = ((15 - this.gameState.timeLeft) / 15) * 100;
         this.elements.progressBar.style.width = `${progress}%`;
     }
 
@@ -331,7 +339,7 @@ class TypingGame {
         this.stopGame();
         
         // Calculate final stats
-        const elapsedTime = 10 / 60; // 10 seconds in minutes
+        const elapsedTime = 15 / 60; // 15 seconds in minutes
         const finalWpm = Math.round(this.gameState.correctWords / elapsedTime);
         const finalCpm = Math.round(this.gameState.correctCharacters / elapsedTime);
         const finalAccuracy = this.gameState.totalCharacters > 0 

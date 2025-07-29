@@ -39,6 +39,7 @@ Preferred communication style: Simple, everyday language.
 
 ### 3. Difficulty System
 - **Beginner Mode**: Common English words (60 basic words)
+- **Intermediate Mode**: Programming and tech-related terms (48 words)
 - **Advanced Mode**: Complex vocabulary including technical terms (40+ challenging words)
 - **Rationale**: Provides scalable challenge levels for different skill levels
 

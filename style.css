@@ -36,14 +36,29 @@ header {
     gap: 1rem;
 }
 
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+}
+
 h1 {
     color: #4a5568;
+    font-family: 'Alfa Slab One', cursive;
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 400;
     background: linear-gradient(45deg, #667eea, #764ba2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    margin: 0;
 }
 
 .difficulty-selector {
@@ -399,6 +414,14 @@ h1 {
     header {
         flex-direction: column;
         text-align: center;
+    }
+
+    .header-content {
+        justify-content: center;
+    }
+
+    .logo {
+        height: 50px;
     }
 
     .current-word {

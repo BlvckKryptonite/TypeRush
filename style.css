@@ -471,6 +471,19 @@ h1 {
     }
 }
 
+/* Footer Credit */
+.footer-credit {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.5rem;
+}
+
+.footer-credit p {
+    color: #718096;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
 /* Time Bonus Notification */
 .time-bonus {
     position: fixed;

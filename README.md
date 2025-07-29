@@ -60,21 +60,21 @@
 
 ### Game Flow
 
-```text
+
 User loads page → Game initializes → User selects difficulty → Clicks Start →
 Random word displayed → User types and submits → Stats and timer update →
 Game ends after time runs out → Final score shown and saved
 
 ### 1. Game Initialization
-```
+
 User loads page → TypingGame class instantiated → DOM elements bound → Default state set
-```
+
 
 ### 2. Game Session Flow
-```
+
 User selects difficulty → Clicks start → Word generated → User types → 
 Real-time validation → Statistics updated → Timer countdown → Game ends → Results displayed
-```
+
 
 ### 3. Statistics Calculation
 - **WPM**: Words per minute based on completed words

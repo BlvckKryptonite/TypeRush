@@ -1,54 +1,69 @@
-# TypeRush - Typing Speed Test Application
+# TypeRush – Typing Speed Test Application
 
 ## Overview
 
-This is a client-side typing speed test application built with vanilla HTML, CSS, and JavaScript. The application provides users with a gamified typing experience featuring multiple difficulty levels, real-time statistics tracking, and a modern, responsive user interface.
+**TypeRush** is a fully client-side typing speed test application developed using HTML, CSS, and vanilla JavaScript. The app delivers a gamified typing experience with real-time feedback, difficulty progression, live statistics tracking, and a responsive, modern UI. It's designed to showcase proficiency in DOM manipulation, OOP principles, and performance-focused front-end development.
 
-## Project Features
+## 🚀 Live Demo
 
-- **Real-time Typing Test**: 15-second typing challenges with live feedback
-- **Time Bonus System**: +2 seconds per correct word, +5 seconds for 5-word streaks
-- **Three Difficulty Levels**: Beginner, Intermediate (programming terms), and Advanced
-- **Live Statistics**: WPM, CPM, accuracy, and correct answer tracking
-- **Local Storage**: Personal best scores saved locally
-- **Responsive Design**: Works seamlessly on desktop and mobile devices
+[🔗 View the Live App](https://blvckkryptonite.github.io/TypeRush/)
 
-## System Architecture
+---
 
-### Frontend Architecture
-- **Technology Stack**: Pure vanilla web technologies (HTML5, CSS3, JavaScript ES6+)
-- **Architecture Pattern**: Single Page Application (SPA) with object-oriented JavaScript
-- **Design Pattern**: Class-based architecture with centralized game state management
-- **Styling Approach**: CSS3 with modern features including gradients, flexbox, and responsive design
+## Features
 
-### Key Design Decisions
-- **No Framework Dependency**: Chosen for simplicity, fast loading, and minimal overhead
-- **Class-based Game Logic**: Encapsulates game state and methods in a single `TypingGame` class for better organization
-- **Responsive Design**: Mobile-first approach ensuring compatibility across devices
+- **Real-Time Typing Test** – 15-second challenge with immediate word validation.
+- **Time Bonus System** – +2 seconds for every correct word; +5 seconds for every 5-word streak.
+- **Difficulty Progression** – Three levels: Beginner (common words), Intermediate (tech terms), Advanced (complex vocabulary).
+- **Live Statistics Display** – WPM, CPM, accuracy, and streak tracking updated in real-time.
+- **Persistent High Scores** – Local storage used to save personal bests.
+- **Responsive Design** – Optimized for both desktop and mobile devices.
+
+---
+
+## Technologies Used
+
+| Area       | Stack / Tools                             |
+|------------|--------------------------------------------|
+| Frontend   | HTML5, CSS3 (Flexbox, Gradients), JavaScript (ES6+) |
+| Architecture | SPA (Single Page App), OOP design using `TypingGame` class |
+| Storage    | Browser `localStorage` (no external DB)    |
+| Deployment | GitHub Pages                               |
+
+---
 
 ## Key Components
 
-### 1. Game Engine (`TypingGame` class)
-- **Purpose**: Core game logic and state management
-- **Responsibilities**: 
-  - Word generation and difficulty management
-  - Timer and statistics calculation
-  - Game flow control (start, pause, restart)
-  - Real-time performance tracking
+### Game Engine (`TypingGame` class)
 
-### 2. User Interface Components
-- **Header**: Title and difficulty selector
-- **Stats Bar**: Real-time display of WPM, CPM, accuracy, time, and streak
-- **Word Display**: Current word presentation
-- **Input Controls**: Start/restart buttons and text input field
+- Manages core logic: timer, word generation, difficulty, scoring.
+- Handles all game state transitions (start, pause, finish).
+- Encapsulates game logic for testability and scalability.
 
-### 3. Difficulty System
-- **Beginner Mode**: Common English words (60 basic words)
-- **Intermediate Mode**: Programming and tech-related terms (48 words)
-- **Advanced Mode**: Complex vocabulary including technical terms (40+ challenging words)
-- **Rationale**: Provides scalable challenge levels for different skill levels
+### Difficulty System
 
-## Data Flow
+- **Beginner**: 60 common English words.
+- **Intermediate**: 48 programming/tech-related terms.
+- **Advanced**: 40+ complex or uncommon words.
+- Dynamic progression encourages skill building and replayability.
+
+### Live Statistics
+
+- **WPM (Words Per Minute)**: Based on correctly submitted words.
+- **CPM (Characters Per Minute)**: Total characters typed, including spaces.
+- **Accuracy %**: Percentage of correct characters.
+- **Streak**: Tracks consecutive correct entries.
+
+---
+
+## System Architecture
+
+### Game Flow
+
+```text
+User loads page → Game initializes → User selects difficulty → Clicks Start →
+Random word displayed → User types and submits → Stats and timer update →
+Game ends after time runs out → Final score shown and saved
 
 ### 1. Game Initialization
 ```

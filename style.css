@@ -448,6 +448,38 @@ h1 {
     }
 }
 
+/* Time Bonus Notification */
+.time-bonus {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg, #48bb78, #38a169);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    box-shadow: 0 10px 25px rgba(72, 187, 120, 0.3);
+    z-index: 1001;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: bonusPop 0.5s ease;
+}
+
+@keyframes bonusPop {
+    0% {
+        transform: translateX(-50%) scale(0.8);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.1);
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
     * {

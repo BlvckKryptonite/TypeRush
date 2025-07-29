@@ -274,6 +274,17 @@ class TypingGame {
                 this.gameState.bestStreak = this.gameState.currentStreak;
             }
 
+            // Add 2 seconds for each correct answer
+            this.gameState.timeLeft += 2;
+            
+            // Add 5 seconds bonus for every 5 correct words without errors
+            if (this.gameState.currentStreak % 5 === 0) {
+                this.gameState.timeLeft += 5;
+                this.showTimeBonus('+5 sec bonus for 5 in a row!');
+            } else {
+                this.showTimeBonus('+2 sec');
+            }
+
             // Visual feedback
             this.elements.currentWordDisplay.className = 'current-word correct';
             
@@ -282,7 +293,9 @@ class TypingGame {
                 this.generateNewWord();
             }, 200);
         } else {
-            // Incorrect word - don't reset streak, just don't increment it
+            // Incorrect word - reset streak and don't add time
+            this.gameState.currentStreak = 0;
+            
             // Visual feedback
             this.elements.currentWordDisplay.className = 'current-word incorrect';
             
@@ -393,6 +406,29 @@ class TypingGame {
     loadPersonalBest() {
         const personalBest = this.getPersonalBest();
         this.elements.personalBestWpm.textContent = personalBest;
+    }
+
+    showTimeBonus(message) {
+        // Create or get the time bonus display element
+        let bonusElement = document.getElementById('time-bonus');
+        if (!bonusElement) {
+            bonusElement = document.createElement('div');
+            bonusElement.id = 'time-bonus';
+            bonusElement.className = 'time-bonus';
+            document.querySelector('.container').appendChild(bonusElement);
+        }
+
+        bonusElement.textContent = message;
+        bonusElement.style.display = 'block';
+        bonusElement.style.opacity = '1';
+
+        // Animate and hide the bonus message
+        setTimeout(() => {
+            bonusElement.style.opacity = '0';
+            setTimeout(() => {
+                bonusElement.style.display = 'none';
+            }, 300);
+        }, 1500);
     }
 }
 

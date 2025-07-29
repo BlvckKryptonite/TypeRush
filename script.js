@@ -1,5 +1,8 @@
 // Typing Speed Test Game Logic
 class TypingGame {
+    /**
+     * Initialize the typing speed test game with word lists, game state, and DOM elements
+     */
     constructor() {
         // Word lists for different difficulty levels
         this.wordLists = {
@@ -77,12 +80,18 @@ class TypingGame {
         this.init();
     }
 
+    /**
+     * Initialize the game by binding events, loading saved data, and updating display
+     */
     init() {
         this.bindEvents();
         this.loadPersonalBest();
         this.updateDisplay();
     }
 
+    /**
+     * Bind all event listeners for user interactions (buttons, input, keyboard shortcuts)
+     */
     bindEvents() {
         // Game control events
         this.elements.startBtn.addEventListener('click', () => this.startGame());
@@ -112,6 +121,9 @@ class TypingGame {
         });
     }
 
+    /**
+     * Start a new typing game session - reset stats, enable input, start timer
+     */
     startGame() {
         this.gameState.isPlaying = true;
         this.gameState.startTime = Date.now();
@@ -195,6 +207,9 @@ class TypingGame {
         }, 100);
     }
 
+    /**
+     * Generate a random word from the current difficulty level and display it
+     */
     generateNewWord() {
         const wordList = this.wordLists[this.gameState.difficulty];
         const randomIndex = Math.floor(Math.random() * wordList.length);
@@ -204,6 +219,10 @@ class TypingGame {
         this.displayWordWithHighlighting();
     }
 
+    /**
+     * Display the current word with real-time letter highlighting based on user input
+     * Shows correct letters in green, incorrect in red, and current position highlighted
+     */
     displayWordWithHighlighting() {
         const word = this.gameState.currentWord;
         const input = this.elements.wordInput.value;
@@ -230,6 +249,9 @@ class TypingGame {
         this.elements.currentWordDisplay.innerHTML = html;
     }
 
+    /**
+     * Handle user typing in the input field - update visual feedback and highlighting
+     */
     handleInput(e) {
         if (!this.gameState.isPlaying) return;
 
@@ -256,6 +278,10 @@ class TypingGame {
         }
     }
 
+    /**
+     * Check if the typed word is correct, update stats, and apply time bonuses
+     * Correct answers add 2 seconds, every 5 correct in a row adds 5 bonus seconds
+     */
     checkWord() {
         const input = this.elements.wordInput.value.toLowerCase().trim();
         const currentWord = this.gameState.currentWord;
@@ -326,6 +352,9 @@ class TypingGame {
         this.elements.progressBar.style.width = `${progress}%`;
     }
 
+    /**
+     * Update real-time statistics (WPM, CPM, accuracy) during gameplay
+     */
     updateLiveStats() {
         if (!this.gameState.isPlaying || !this.gameState.startTime) return;
 
@@ -348,6 +377,9 @@ class TypingGame {
         }
     }
 
+    /**
+     * End the game session, calculate final statistics, and show results modal
+     */
     endGame() {
         this.stopGame();
         
@@ -408,6 +440,9 @@ class TypingGame {
         this.elements.personalBestWpm.textContent = personalBest;
     }
 
+    /**
+     * Display animated time bonus notification when player gets correct answers
+     */
     showTimeBonus(message) {
         // Create or get the time bonus display element
         let bonusElement = document.getElementById('time-bonus');
@@ -432,7 +467,9 @@ class TypingGame {
     }
 }
 
-// Initialize the game when DOM is loaded
+/**
+ * Initialize the game when DOM is loaded and set up global event handlers
+ */
 document.addEventListener('DOMContentLoaded', () => {
     // Check for localStorage support
     try {

@@ -27,7 +27,7 @@ class TypingGame {
         this.gameState = {
             isPlaying: false,
             isPaused: false,
-            timeLeft: 60,
+            timeLeft: 10,
             currentWord: '',
             wordsTyped: 0,
             correctWords: 0,
@@ -107,7 +107,7 @@ class TypingGame {
     startGame() {
         this.gameState.isPlaying = true;
         this.gameState.startTime = Date.now();
-        this.gameState.timeLeft = 60;
+        this.gameState.timeLeft = 10;
 
         // Reset stats
         this.resetStats();
@@ -241,8 +241,8 @@ class TypingGame {
     handleKeydown(e) {
         if (!this.gameState.isPlaying) return;
 
-        // Handle space or enter for word completion
-        if (e.key === ' ' || e.key === 'Enter') {
+        // Handle enter for word completion
+        if (e.key === 'Enter') {
             e.preventDefault();
             this.checkWord();
         }
@@ -257,7 +257,7 @@ class TypingGame {
         this.gameState.totalCharacters += input.length;
 
         if (input === currentWord) {
-            // Correct word
+            // Correct word - increment streak for each correct answer
             this.gameState.correctWords++;
             this.gameState.correctCharacters += input.length;
             this.gameState.currentStreak++;
@@ -274,9 +274,7 @@ class TypingGame {
                 this.generateNewWord();
             }, 200);
         } else {
-            // Incorrect word
-            this.gameState.currentStreak = 0;
-            
+            // Incorrect word - don't reset streak, just don't increment it
             // Visual feedback
             this.elements.currentWordDisplay.className = 'current-word incorrect';
             
@@ -303,7 +301,7 @@ class TypingGame {
     }
 
     updateProgressBar() {
-        const progress = ((60 - this.gameState.timeLeft) / 60) * 100;
+        const progress = ((10 - this.gameState.timeLeft) / 10) * 100;
         this.elements.progressBar.style.width = `${progress}%`;
     }
 
@@ -333,7 +331,7 @@ class TypingGame {
         this.stopGame();
         
         // Calculate final stats
-        const elapsedTime = 60 / 60; // 1 minute
+        const elapsedTime = 10 / 60; // 10 seconds in minutes
         const finalWpm = Math.round(this.gameState.correctWords / elapsedTime);
         const finalCpm = Math.round(this.gameState.correctCharacters / elapsedTime);
         const finalAccuracy = this.gameState.totalCharacters > 0 

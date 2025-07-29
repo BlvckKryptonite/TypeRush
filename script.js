@@ -1,7 +1,4 @@
-/**
- * Typing Speed Test Game Logic
- * A complete typing game with difficulty levels, time bonuses, and performance tracking
- */
+// Typing Speed Test Game Logic
 class TypingGame {
     constructor() {
         // Word lists for different difficulty levels
@@ -80,18 +77,12 @@ class TypingGame {
         this.init();
     }
 
-    /**
-     * Initialize the game by binding events and loading saved data
-     */
     init() {
         this.bindEvents();
         this.loadPersonalBest();
         this.updateDisplay();
     }
 
-    /**
-     * Bind all event listeners for user interactions
-     */
     bindEvents() {
         // Game control events
         this.elements.startBtn.addEventListener('click', () => this.startGame());
@@ -121,9 +112,6 @@ class TypingGame {
         });
     }
 
-    /**
-     * Start a new game session with fresh timer and stats
-     */
     startGame() {
         this.gameState.isPlaying = true;
         this.gameState.startTime = Date.now();
@@ -207,9 +195,6 @@ class TypingGame {
         }, 100);
     }
 
-    /**
-     * Generate a random word from the current difficulty word list
-     */
     generateNewWord() {
         const wordList = this.wordLists[this.gameState.difficulty];
         const randomIndex = Math.floor(Math.random() * wordList.length);
@@ -219,10 +204,6 @@ class TypingGame {
         this.displayWordWithHighlighting();
     }
 
-    /**
-     * Display the current word with real-time letter highlighting
-     * Shows correct (green), incorrect (red), and current (blue) letters
-     */
     displayWordWithHighlighting() {
         const word = this.gameState.currentWord;
         const input = this.elements.wordInput.value;
@@ -275,10 +256,6 @@ class TypingGame {
         }
     }
 
-    /**
-     * Check if the typed word is correct and update game state
-     * Handles time bonuses and streak tracking
-     */
     checkWord() {
         const input = this.elements.wordInput.value.toLowerCase().trim();
         const currentWord = this.gameState.currentWord;
@@ -349,9 +326,6 @@ class TypingGame {
         this.elements.progressBar.style.width = `${progress}%`;
     }
 
-    /**
-     * Update WPM, CPM, and accuracy statistics in real-time during gameplay
-     */
     updateLiveStats() {
         if (!this.gameState.isPlaying || !this.gameState.startTime) return;
 
@@ -374,9 +348,6 @@ class TypingGame {
         }
     }
 
-    /**
-     * End the game, calculate final stats, check for high scores, and show results modal
-     */
     endGame() {
         this.stopGame();
         
@@ -437,10 +408,6 @@ class TypingGame {
         this.elements.personalBestWpm.textContent = personalBest;
     }
 
-    /**
-     * Display animated time bonus notification to the user
-     * @param {string} message - The bonus message to display
-     */
     showTimeBonus(message) {
         // Create or get the time bonus display element
         let bonusElement = document.getElementById('time-bonus');

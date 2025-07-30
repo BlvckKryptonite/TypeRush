@@ -12,7 +12,12 @@ class TypingGame {
                 'but', 'his', 'by', 'from', 'they', 'we', 'say', 'her', 'she', 'or',
                 'an', 'will', 'my', 'one', 'all', 'would', 'there', 'their', 'what', 'so',
                 'up', 'out', 'if', 'about', 'who', 'get', 'which', 'go', 'me', 'when',
-                'make', 'can', 'like', 'time', 'no', 'just', 'him', 'know', 'take', 'people'
+                'make', 'can', 'like', 'time', 'no', 'just', 'him', 'know', 'take', 'people',
+                'come', 'see', 'how', 'now', 'may', 'way', 'day', 'man', 'new', 'old',
+                'here', 'each', 'use', 'work', 'well', 'call', 'back', 'good', 'much', 'where',
+                'long', 'right', 'move', 'try', 'kind', 'hand', 'high', 'keep', 'last', 'give',
+                'most', 'very', 'after', 'thing', 'why', 'ask', 'men', 'change', 'went', 'light',
+                'want', 'air', 'land', 'home', 'us', 'great', 'year', 'think', 'help', 'line'
             ],
             intermediate: [
                 'computer', 'program', 'function', 'variable', 'method', 'object', 'class', 'string',
@@ -20,7 +25,12 @@ class TypingGame {
                 'import', 'export', 'module', 'package', 'library', 'framework', 'database', 'server',
                 'client', 'request', 'response', 'header', 'body', 'status', 'error', 'exception',
                 'handle', 'catch', 'throw', 'async', 'await', 'promise', 'callback', 'event',
-                'listener', 'element', 'document', 'window', 'console', 'debug', 'test', 'build'
+                'listener', 'element', 'document', 'window', 'console', 'debug', 'test', 'build',
+                'deploy', 'version', 'branch', 'commit', 'merge', 'pull', 'push', 'clone', 'fork', 'issue',
+                'feature', 'bug', 'fix', 'patch', 'release', 'tag', 'config', 'setup', 'install', 'update',
+                'syntax', 'compile', 'runtime', 'memory', 'stack', 'heap', 'thread', 'process', 'queue', 'hash',
+                'index', 'search', 'sort', 'filter', 'map', 'reduce', 'iterate', 'parse', 'validate', 'encode',
+                'decode', 'encrypt', 'secure', 'token', 'session', 'cookie', 'cache', 'storage', 'backup', 'restore'
             ],
             advanced: [
                 'algorithm', 'architecture', 'beautiful', 'challenging', 'development', 'extraordinary',
@@ -30,7 +40,14 @@ class TypingGame {
                 'wonderful', 'excellent', 'yourself', 'zebra', 'achievement', 'background',
                 'construction', 'democracy', 'environment', 'frequency', 'generation', 'helicopter',
                 'independence', 'jurisdiction', 'kindergarten', 'laboratory', 'mathematics',
-                'negotiation', 'observation', 'possibility', 'qualification', 'refrigerator'
+                'negotiation', 'observation', 'possibility', 'qualification', 'refrigerator',
+                'philosophical', 'psychological', 'reconnaissance', 'revolutionary', 'extraordinary',
+                'incomprehensible', 'uncharacteristic', 'interconnection', 'transformation', 'acknowledgment',
+                'consciousness', 'communication', 'infrastructure', 'comprehensive', 'representative',
+                'characteristics', 'recommendations', 'responsibilities', 'accomplishments', 'establishments',
+                'electromagnetic', 'cardiovascular', 'neurological', 'pharmaceutical', 'biotechnology',
+                'entrepreneurship', 'sustainability', 'globalization', 'industrialization', 'specialization',
+                'internationalization', 'institutionalization', 'constitutionalization', 'professionalization', 'commercialization'
             ]
         };
 
